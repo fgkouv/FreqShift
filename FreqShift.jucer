@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="LgLCE8" name="FreqShift" projectType="audioplug" jucerVersion="5.3.2"
+              pluginManufacturer="qua.rej" companyName="qua.rej" pluginFormats="buildVST">
+  <MAINGROUP id="EhumRu" name="FreqShift">
+    <GROUP id="{977FF247-A87D-4BFC-E076-753D9866B09D}" name="Resources">
+      <FILE id="nP6xqG" name="Shkoder 1989 Light.otf" compile="0" resource="1"
+            file="Resources/Shkoder 1989 Light.otf"/>
+      <FILE id="Akkxry" name="SHPinscher-Regular.otf" compile="0" resource="1"
+            file="Resources/SHPinscher-Regular.otf"/>
+    </GROUP>
+    <GROUP id="{980DCBD0-1089-A3A5-4B88-EF08CE88D8AA}" name="Source">
+      <GROUP id="{243A16AF-5DE8-2016-6801-8596020F41C8}" name="Audio">
+        <FILE id="AXF1Lp" name="BlackmanWindow.h" compile="0" resource="0"
+              file="Source/BlackmanWindow.h"/>
+        <FILE id="r8iVoD" name="HilbertShifter.cpp" compile="1" resource="0"
+              file="Source/HilbertShifter.cpp"/>
+        <FILE id="ZIQbo7" name="HilbertShifter.h" compile="0" resource="0"
+              file="Source/HilbertShifter.h"/>
+      </GROUP>
+      <FILE id="S6eG20" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="kPl7mf" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="jrVSK8" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="AZlHQF" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug"/>
+        <CONFIGURATION isDebug="0" name="Release"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../SDKs &amp; Libraries/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../SDKs &amp; Libraries/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../SDKs &amp; Libraries/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../SDKs &amp; Libraries/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../SDKs &amp; Libraries/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../SDKs &amp; Libraries/JUCE/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../SDKs &amp; Libraries/JUCE/modules"/>
+        <MODULEPATH id="juce_video" path="../../SDKs &amp; Libraries/JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="../../SDKs &amp; Libraries/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../SDKs &amp; Libraries/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../SDKs &amp; Libraries/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../SDKs &amp; Libraries/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../SDKs &amp; Libraries/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../SDKs &amp; Libraries/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../SDKs &amp; Libraries/JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="0"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_cryptography" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_video" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+  </MODULES>
+  <LIVE_SETTINGS>
+    <OSX/>
+  </LIVE_SETTINGS>
+  <JUCEOPTIONS/>
+</JUCERPROJECT>
