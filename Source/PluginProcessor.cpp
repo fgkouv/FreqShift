@@ -23,7 +23,28 @@ FreqShiftAudioProcessor::FreqShiftAudioProcessor()
                      #endif
                        )
 #endif
-{    
+, m_parameters (*this, nullptr)
+{
+    
+    m_parameters.createAndAddParameter ("freqshift",                        // parameter ID
+                                        "Frequency Shift",                      // parameter name
+                                        " Hz",                                           // parameter label (suffix)
+                                        NormalisableRange<float> (-500.f, 500.f, 5.f, 1.f),  // range
+                                        0.f,                                            // default value
+                                        nullptr,
+                                        nullptr);
+    
+    m_parameters.createAndAddParameter ("mix",                       // parameter ID
+                                        "Mix",                     // parameter name
+                                        "",                                           // parameter label (suffix)
+                                        NormalisableRange<float> (0.f, 1.f, 0.01f),  // range
+                                        1.f,                                            // default value
+                                        nullptr,
+                                        nullptr);
+    
+    
+    m_parameters.state = ValueTree (Identifier ("FreqShift"));
+    
     for (int i=0;i<numStereoChannels;++i)
     {
         m_hilberFreqShifter.push_back(std::make_unique<HilbertShifter>());
@@ -192,21 +213,27 @@ bool FreqShiftAudioProcessor::hasEditor() const
 
 AudioProcessorEditor* FreqShiftAudioProcessor::createEditor()
 {
-    return new FreqShiftAudioProcessorEditor (*this);
+    return new FreqShiftAudioProcessorEditor (*this, m_parameters);
 }
 
 //==============================================================================
 void FreqShiftAudioProcessor::getStateInformation (MemoryBlock& destData)
 {
-    // You should use this method to store your parameters in the memory block.
-    // You could do that either as raw data, or use the XML or ValueTree classes
-    // as intermediaries to make it easy to save and load complex data.
+    ScopedPointer<XmlElement> xml (m_parameters.state.createXml());
+    copyXmlToBinary (*xml, destData);
 }
 
 void FreqShiftAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
-    // You should use this method to restore your parameters from this memory block,
-    // whose contents will have been created by the getStateInformation() call.
+    ScopedPointer<XmlElement> xmlState (getXmlFromBinary (data, sizeInBytes));
+    
+    if (xmlState != nullptr)
+    {
+        if (xmlState->hasTagName (m_parameters.state.getType()))
+        {
+            m_parameters.state = ValueTree::fromXml (*xmlState);
+        }
+    }
 }
 
 //==============================================================================

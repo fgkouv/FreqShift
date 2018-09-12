@@ -70,5 +70,8 @@ private:
     const int numStereoChannels { 2 };
 
     
+    AudioProcessorValueTreeState m_parameters;
+    
+    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FreqShiftAudioProcessor)
 };

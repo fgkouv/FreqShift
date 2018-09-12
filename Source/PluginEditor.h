@@ -19,7 +19,7 @@
 class FreqShiftAudioProcessorEditor  : public AudioProcessorEditor, public Slider::Listener
 {
 public:
-    FreqShiftAudioProcessorEditor (FreqShiftAudioProcessor&);
+    FreqShiftAudioProcessorEditor (FreqShiftAudioProcessor&, AudioProcessorValueTreeState& vts);
     ~FreqShiftAudioProcessorEditor();
 
     //==============================================================================
@@ -41,6 +41,10 @@ private:
     
     juce::Slider m_frequencySlider;
     juce::Slider m_mixSlider;
+    
+    
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> m_freqShiftSliderAttachment;
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> m_mixSliderAttachment;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FreqShiftAudioProcessorEditor)
 };

@@ -12,7 +12,7 @@
 #include "PluginEditor.h"
 
 //==============================================================================
-FreqShiftAudioProcessorEditor::FreqShiftAudioProcessorEditor (FreqShiftAudioProcessor& p)
+FreqShiftAudioProcessorEditor::FreqShiftAudioProcessorEditor (FreqShiftAudioProcessor& p, AudioProcessorValueTreeState& vts)
     : AudioProcessorEditor (&p), processor (p)
 {
     // Make sure that before the constructor has finished, you've set the
@@ -28,23 +28,22 @@ FreqShiftAudioProcessorEditor::FreqShiftAudioProcessorEditor (FreqShiftAudioProc
     m_logoFont = Font(Typeface::createSystemTypefaceFor (BinaryData::Shkoder_1989_Light_otf, BinaryData::Shkoder_1989_Light_otfSize));
     m_quarejFont = Font(Typeface::createSystemTypefaceFor (BinaryData::SHPinscherRegular_otf, BinaryData::SHPinscherRegular_otfSize));
     
-    m_frequencySlider.setRange(-500.f, 500.f, 5.f);
-    m_frequencySlider.setValue(0.f);
+
     m_frequencySlider.setName("Frequency");
     m_frequencySlider.setSliderStyle(juce::Slider::SliderStyle::RotaryHorizontalVerticalDrag);
     m_frequencySlider.setTextBoxStyle(juce::Slider::TextBoxBelow, false, 50, 20);
     m_frequencySlider.setTextValueSuffix(" Hz");
     m_frequencySlider.addListener(this);
-
+    m_freqShiftSliderAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(vts, "freqshift", m_frequencySlider);
     
-    m_mixSlider.setRange(0.f, 1.f);
-    m_mixSlider.setValue(1.f);
+    
     m_mixSlider.setName("Mix");
     m_mixSlider.setSliderStyle(juce::Slider::SliderStyle::RotaryHorizontalVerticalDrag);
     m_mixSlider.setTextBoxStyle(juce::Slider::TextBoxBelow, false, 50, 20);
     m_mixSlider.setNumDecimalPlacesToDisplay(2);
     m_mixSlider.addListener(this);
-    
+    m_mixSliderAttachment = std::make_unique<juce::AudioProcessorValueTreeState::SliderAttachment>(vts, "mix", m_mixSlider);
+
     m_frequencyLabel.setText("frequency shift", juce::NotificationType::dontSendNotification);
     m_frequencyLabel.setFont(m_logoFont);
     m_frequencyLabel.setJustificationType(juce::Justification::centred);
