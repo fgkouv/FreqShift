@@ -42,9 +42,18 @@ private:
     juce::Slider m_frequencySlider;
     juce::Slider m_mixSlider;
     
+    juce::Label m_lfoRateLabel;
+    juce::Label m_lfoDepthLabel;
+    
+    juce::Slider m_lfoRateSlider;
+    juce::Slider m_lfoDepthSlider;
+    
     
     std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> m_freqShiftSliderAttachment;
     std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> m_mixSliderAttachment;
+    
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> m_lfoRateSliderAttachment;
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> m_lfoDepthSliderAttachment;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FreqShiftAudioProcessorEditor)
 };

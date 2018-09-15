@@ -11,12 +11,138 @@
     </GROUP>
     <GROUP id="{980DCBD0-1089-A3A5-4B88-EF08CE88D8AA}" name="Source">
       <GROUP id="{243A16AF-5DE8-2016-6801-8596020F41C8}" name="Audio">
+        <GROUP id="{FB3C7C42-2984-7B52-5DF3-1F80C5D24BFA}" name="Tables">
+          <FILE id="egyPuC" name="bandlimitedImpulseTable.cpp" compile="1" resource="0"
+                file="Source/Tables/bandlimitedImpulseTable.cpp"/>
+          <FILE id="aS90D8" name="bandlimitedImpulseTableForInterpolation.cpp"
+                compile="1" resource="0" file="Source/Tables/bandlimitedImpulseTableForInterpolation.cpp"/>
+          <FILE id="kY8lu0" name="bandlimitedReverseSawtoothTable.cpp" compile="1"
+                resource="0" file="Source/Tables/bandlimitedReverseSawtoothTable.cpp"/>
+          <FILE id="yAUMGW" name="bandlimitedReverseSawtoothTableForInterpolation.cpp"
+                compile="1" resource="0" file="Source/Tables/bandlimitedReverseSawtoothTableForInterpolation.cpp"/>
+          <FILE id="CbbFHp" name="bandlimitedSawtoothTable.cpp" compile="1" resource="0"
+                file="Source/Tables/bandlimitedSawtoothTable.cpp"/>
+          <FILE id="F8SMj0" name="bandlimitedSawtoothTableForInterpolation.cpp"
+                compile="1" resource="0" file="Source/Tables/bandlimitedSawtoothTableForInterpolation.cpp"/>
+          <FILE id="c0n7PW" name="bandlimitedSignalTable.cpp" compile="1" resource="0"
+                file="Source/Tables/bandlimitedSignalTable.cpp"/>
+          <FILE id="OFHTsK" name="bandlimitedSignalTableForInterpolation.cpp"
+                compile="1" resource="0" file="Source/Tables/bandlimitedSignalTableForInterpolation.cpp"/>
+          <FILE id="T3Pkac" name="bandlimitedSquareTable.cpp" compile="1" resource="0"
+                file="Source/Tables/bandlimitedSquareTable.cpp"/>
+          <FILE id="rQ1C8R" name="bandlimitedSquareTableForInterpolation.cpp"
+                compile="1" resource="0" file="Source/Tables/bandlimitedSquareTableForInterpolation.cpp"/>
+          <FILE id="Bzb09U" name="bandlimitedTriangleTable.cpp" compile="1" resource="0"
+                file="Source/Tables/bandlimitedTriangleTable.cpp"/>
+          <FILE id="HD0hDy" name="bandlimitedTriangleTableForInterpolation.cpp"
+                compile="1" resource="0" file="Source/Tables/bandlimitedTriangleTableForInterpolation.cpp"/>
+          <FILE id="lljpdc" name="exponentialTable.cpp" compile="1" resource="0"
+                file="Source/Tables/exponentialTable.cpp"/>
+          <FILE id="nnOkN5" name="exponentialTableForInterpolation.cpp" compile="1"
+                resource="0" file="Source/Tables/exponentialTableForInterpolation.cpp"/>
+          <FILE id="awqMC8" name="fullRectifiedSinTable.cpp" compile="1" resource="0"
+                file="Source/Tables/fullRectifiedSinTable.cpp"/>
+          <FILE id="yUNDK7" name="fullRectifiedSinTableForInterpolation.cpp"
+                compile="1" resource="0" file="Source/Tables/fullRectifiedSinTableForInterpolation.cpp"/>
+          <FILE id="SdRT3M" name="gaussTable.cpp" compile="1" resource="0" file="Source/Tables/gaussTable.cpp"/>
+          <FILE id="SeBDkZ" name="gaussTableForInterpolation.cpp" compile="1"
+                resource="0" file="Source/Tables/gaussTableForInterpolation.cpp"/>
+          <FILE id="VYjj2a" name="halfRectifiedSinTable.cpp" compile="1" resource="0"
+                file="Source/Tables/halfRectifiedSinTable.cpp"/>
+          <FILE id="oGH85n" name="halfRectifiedSinTableForInterpolation.cpp"
+                compile="1" resource="0" file="Source/Tables/halfRectifiedSinTableForInterpolation.cpp"/>
+          <FILE id="B26AnE" name="hannTable.cpp" compile="1" resource="0" file="Source/Tables/hannTable.cpp"/>
+          <FILE id="OkjYO7" name="hannTableForInterpolation.cpp" compile="1"
+                resource="0" file="Source/Tables/hannTableForInterpolation.cpp"/>
+          <FILE id="LjZyW2" name="logarithmTable.cpp" compile="1" resource="0"
+                file="Source/Tables/logarithmTable.cpp"/>
+          <FILE id="FKhSar" name="logarithmTableForInterpolation.cpp" compile="1"
+                resource="0" file="Source/Tables/logarithmTableForInterpolation.cpp"/>
+          <FILE id="m8zxWG" name="powerTwoTable.cpp" compile="1" resource="0"
+                file="Source/Tables/powerTwoTable.cpp"/>
+          <FILE id="prDZTX" name="powerTwoTableForInterpolation.cpp" compile="1"
+                resource="0" file="Source/Tables/powerTwoTableForInterpolation.cpp"/>
+          <FILE id="ETPQDb" name="rcChargeDischargeTable.cpp" compile="1" resource="0"
+                file="Source/Tables/rcChargeDischargeTable.cpp"/>
+          <FILE id="yEApd2" name="rcChargeDischargeTableForInterpolation.cpp"
+                compile="1" resource="0" file="Source/Tables/rcChargeDischargeTableForInterpolation.cpp"/>
+          <FILE id="F93xsT" name="reverseSawtoothTable.cpp" compile="1" resource="0"
+                file="Source/Tables/reverseSawtoothTable.cpp"/>
+          <FILE id="kPy2Lz" name="reverseSawtoothTableBipolar.cpp" compile="1"
+                resource="0" file="Source/Tables/reverseSawtoothTableBipolar.cpp"/>
+          <FILE id="l01qCz" name="reverseSawtoothTableForInterpolation.cpp" compile="1"
+                resource="0" file="Source/Tables/reverseSawtoothTableForInterpolation.cpp"/>
+          <FILE id="ALlh7l" name="reverseSawtoothTableForInterpolationBipolar.cpp"
+                compile="1" resource="0" file="Source/Tables/reverseSawtoothTableForInterpolationBipolar.cpp"/>
+          <FILE id="ZPB5eF" name="sawtoothTable.cpp" compile="1" resource="0"
+                file="Source/Tables/sawtoothTable.cpp"/>
+          <FILE id="dsAE7n" name="sawtoothTableBipolar.cpp" compile="1" resource="0"
+                file="Source/Tables/sawtoothTableBipolar.cpp"/>
+          <FILE id="vMz3LC" name="sawtoothTableForInterpolation.cpp" compile="1"
+                resource="0" file="Source/Tables/sawtoothTableForInterpolation.cpp"/>
+          <FILE id="xLI0PJ" name="sawtoothTableForInterpolationBipolar.cpp" compile="1"
+                resource="0" file="Source/Tables/sawtoothTableForInterpolationBipolar.cpp"/>
+          <FILE id="lJ9w5c" name="sincTable.cpp" compile="1" resource="0" file="Source/Tables/sincTable.cpp"/>
+          <FILE id="HaTBaD" name="sincTableForInterpolation.cpp" compile="1"
+                resource="0" file="Source/Tables/sincTableForInterpolation.cpp"/>
+          <FILE id="hdPMtP" name="sinStaircaseTable.cpp" compile="1" resource="0"
+                file="Source/Tables/sinStaircaseTable.cpp"/>
+          <FILE id="z5h5Kz" name="sinStaircaseTableForInterpolation.cpp" compile="1"
+                resource="0" file="Source/Tables/sinStaircaseTableForInterpolation.cpp"/>
+          <FILE id="kSgq1V" name="sinTable.cpp" compile="1" resource="0" file="Source/Tables/sinTable.cpp"/>
+          <FILE id="ipfEpF" name="sinTableBipolar.cpp" compile="1" resource="0"
+                file="Source/Tables/sinTableBipolar.cpp"/>
+          <FILE id="u6mfMM" name="sinTableForInterpolation.cpp" compile="1" resource="0"
+                file="Source/Tables/sinTableForInterpolation.cpp"/>
+          <FILE id="v79ybc" name="sinTableForInterpolationBipolar.cpp" compile="1"
+                resource="0" file="Source/Tables/sinTableForInterpolationBipolar.cpp"/>
+          <FILE id="my2hba" name="squareRootTable.cpp" compile="1" resource="0"
+                file="Source/Tables/squareRootTable.cpp"/>
+          <FILE id="rTiUIG" name="squareRootTableForInterpolation.cpp" compile="1"
+                resource="0" file="Source/Tables/squareRootTableForInterpolation.cpp"/>
+          <FILE id="m1VkZB" name="squareTable.cpp" compile="1" resource="0" file="Source/Tables/squareTable.cpp"/>
+          <FILE id="WyBPH2" name="squareTableBipolar.cpp" compile="1" resource="0"
+                file="Source/Tables/squareTableBipolar.cpp"/>
+          <FILE id="VG5ZXs" name="squareTableForInterpolation.cpp" compile="1"
+                resource="0" file="Source/Tables/squareTableForInterpolation.cpp"/>
+          <FILE id="SpzOsu" name="squareTableForInterpolationBipolar.cpp" compile="1"
+                resource="0" file="Source/Tables/squareTableForInterpolationBipolar.cpp"/>
+          <FILE id="X6HnPV" name="staircaseTable.cpp" compile="1" resource="0"
+                file="Source/Tables/staircaseTable.cpp"/>
+          <FILE id="N0L1dh" name="staircaseTableForInterpolation.cpp" compile="1"
+                resource="0" file="Source/Tables/staircaseTableForInterpolation.cpp"/>
+          <FILE id="ZtKqGE" name="tangentTable.cpp" compile="1" resource="0"
+                file="Source/Tables/tangentTable.cpp"/>
+          <FILE id="qr1cLE" name="tangentTableForInterpolation.cpp" compile="1"
+                resource="0" file="Source/Tables/tangentTableForInterpolation.cpp"/>
+          <FILE id="TV7EtF" name="triangleIntegralTable.cpp" compile="1" resource="0"
+                file="Source/Tables/triangleIntegralTable.cpp"/>
+          <FILE id="ABLJNz" name="triangleIntegralTableForInterpolation.cpp"
+                compile="1" resource="0" file="Source/Tables/triangleIntegralTableForInterpolation.cpp"/>
+          <FILE id="nVLacm" name="triangleTable.cpp" compile="1" resource="0"
+                file="Source/Tables/triangleTable.cpp"/>
+          <FILE id="iJYPGU" name="triangleTableBipolar.cpp" compile="1" resource="0"
+                file="Source/Tables/triangleTableBipolar.cpp"/>
+          <FILE id="BLnJNj" name="triangleTableForInterpolation.cpp" compile="1"
+                resource="0" file="Source/Tables/triangleTableForInterpolation.cpp"/>
+          <FILE id="sbTNIR" name="triangleTableForInterpolationBipolar.cpp" compile="1"
+                resource="0" file="Source/Tables/triangleTableForInterpolationBipolar.cpp"/>
+        </GROUP>
         <FILE id="AXF1Lp" name="BlackmanWindow.h" compile="0" resource="0"
               file="Source/BlackmanWindow.h"/>
         <FILE id="r8iVoD" name="HilbertShifter.cpp" compile="1" resource="0"
               file="Source/HilbertShifter.cpp"/>
         <FILE id="ZIQbo7" name="HilbertShifter.h" compile="0" resource="0"
               file="Source/HilbertShifter.h"/>
+        <FILE id="K8cUZw" name="NoiseOscillator.cpp" compile="1" resource="0"
+              file="Source/NoiseOscillator.cpp"/>
+        <FILE id="G8yeM7" name="NoiseOscillator.h" compile="0" resource="0"
+              file="Source/NoiseOscillator.h"/>
+        <FILE id="E0Rzo2" name="WavetableOscillator.cpp" compile="1" resource="0"
+              file="Source/WavetableOscillator.cpp"/>
+        <FILE id="KbrcPO" name="WavetableOscillator.h" compile="0" resource="0"
+              file="Source/WavetableOscillator.h"/>
+        <FILE id="oQrIN5" name="Wavetables.h" compile="0" resource="0" file="Source/Wavetables.h"/>
       </GROUP>
       <FILE id="S6eG20" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>

@@ -12,6 +12,7 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "HilbertShifter.h"
+#include "WavetableOscillator.h"
 
 
 //==============================================================================
@@ -36,6 +37,9 @@ public:
 
     void setDryWetMix(float newMixValue);
     void setFrequencyShift(float newFrequencyShift);
+    
+    void setLFORate(float newRate);
+    void setLFODepth(float newDepth);
     
     //==============================================================================
     AudioProcessorEditor* createEditor() override;
@@ -67,11 +71,19 @@ private:
     float m_dryWetMix { 1.f };
     
     std::vector<std::unique_ptr<HilbertShifter>> m_hilberFreqShifter;
+
+    float m_lowpassCutoff { 5000.f };
+    std::vector<std::unique_ptr<juce::IIRFilter>> m_lowpassFilter;
+    juce::IIRCoefficients m_lowpassCoefficients;
+
     const int numStereoChannels { 2 };
 
+    WavetableOscillator m_frequencyLFO;
     
     AudioProcessorValueTreeState m_parameters;
     
+    float m_lfoDepth { 1.f };
+    float m_freqShift { 0.f };
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FreqShiftAudioProcessor)
 };

@@ -42,14 +42,32 @@ FreqShiftAudioProcessor::FreqShiftAudioProcessor()
                                         nullptr,
                                         nullptr);
     
+    m_parameters.createAndAddParameter ("lfoRate",                       // parameter ID
+                                        "LFO rate",                     // parameter name
+                                        "",                                           // parameter label (suffix)
+                                        NormalisableRange<float> (1.f, 200.f, 1.f),  // range
+                                        20.f,                                            // default value
+                                        nullptr,
+                                        nullptr);
+    
+    m_parameters.createAndAddParameter ("lfoDepth",                       // parameter ID
+                                        "LFO depth",                     // parameter name
+                                        "",                                           // parameter label (suffix)
+                                        NormalisableRange<float> (0.f, 100.f, 1.f),  // range
+                                        100.f,                                            // default value
+                                        nullptr,
+                                        nullptr);
     
     m_parameters.state = ValueTree (Identifier ("FreqShift"));
+    
     
     for (int i=0;i<numStereoChannels;++i)
     {
         m_hilberFreqShifter.push_back(std::make_unique<HilbertShifter>());
+        m_lowpassFilter.push_back(std::make_unique<juce::IIRFilter>());
     }
-
+    
+    m_frequencyLFO.setPolaritySetting(WavetableOscillator::Polarity::monopolar);
 }
 
 FreqShiftAudioProcessor::~FreqShiftAudioProcessor()
@@ -96,8 +114,7 @@ double FreqShiftAudioProcessor::getTailLengthSeconds() const
 
 int FreqShiftAudioProcessor::getNumPrograms()
 {
-    return 1;   // NB: some hosts don't cope very well if you tell them there are 0 programs,
-                // so this should be at least 1, even if you're not really implementing programs.
+    return 1;
 }
 
 int FreqShiftAudioProcessor::getCurrentProgram()
@@ -123,8 +140,15 @@ void FreqShiftAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBl
 {
     m_processedBuffer.setSize(numStereoChannels, samplesPerBlock);
     
+    m_lowpassCoefficients = IIRCoefficients::makeLowPass(sampleRate, m_lowpassCutoff);
+    
+    m_frequencyLFO.setSampleRate(sampleRate);
+    
     for (int i=0;i<numStereoChannels;++i)
     {
+        m_lowpassFilter[i]->setCoefficients(m_lowpassCoefficients);
+        m_lowpassFilter[i]->reset();
+        
         m_hilberFreqShifter[i]->prepareToPlay(sampleRate, samplesPerBlock);
     }
 }
@@ -167,12 +191,25 @@ void FreqShiftAudioProcessor::setDryWetMix(float newMixValue)
 
 void FreqShiftAudioProcessor::setFrequencyShift(float newFrequencyShift)
 {
+    m_freqShift = newFrequencyShift;
+    
     for (int i=0;i < m_hilberFreqShifter.size();++i)
     {
         m_hilberFreqShifter[i]->setFrequencyShift(newFrequencyShift);
     }
 }
 
+
+void FreqShiftAudioProcessor::setLFORate(float newRate)
+{
+    m_frequencyLFO.setFrequency(newRate);
+}
+
+
+void FreqShiftAudioProcessor::setLFODepth(float newDepth)
+{
+    m_lfoDepth = newDepth;
+}
 
 void FreqShiftAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
@@ -187,14 +224,16 @@ void FreqShiftAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuff
 
     int numSamples = m_processedBuffer.getNumSamples();
     
+    
     for (int channel = 0; channel < numStereoChannels; ++channel)
     {
         const float* inputBuffer = buffer.getReadPointer(channel);
         float* outputBuffer = buffer.getWritePointer(channel);
 
-        
         FloatVectorOperations::copy(m_processedBuffer.getWritePointer(channel), inputBuffer, numSamples);
         m_hilberFreqShifter[channel]->processBlock(m_processedBuffer.getWritePointer(channel), numSamples);
+        
+        m_lowpassFilter[channel]->processSamples(m_processedBuffer.getWritePointer(channel), numSamples);
         
         const float* shiftedBuffer = m_processedBuffer.getReadPointer(channel);
         for (int i=0; i<numSamples; ++i)
